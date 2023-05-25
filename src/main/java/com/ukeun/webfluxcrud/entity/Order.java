@@ -8,9 +8,9 @@ import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDateTime;
 
-@Table("orders")
 @Getter
 @Setter
+@Table("orders")
 public class Order {
 
     @Id
@@ -20,6 +20,11 @@ public class Order {
     @Column("amount")
     private Double amount;
 
-    @Column("placed_date")
-    private LocalDateTime placeDate;
+    @Column("placedDate")
+    private LocalDateTime placedDate;
+
+    public Order(Double amount, LocalDateTime placedDate) {
+        this.amount = amount;
+        this.placedDate = placedDate;
+    }
 }
