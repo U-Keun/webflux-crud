@@ -1,7 +1,7 @@
 package com.ukeun.webfluxcrud.router;
 
 import com.ukeun.webfluxcrud.handler.OrderHandler;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -11,10 +11,10 @@ import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
 @Configuration
+@RequiredArgsConstructor
 public class OrderRouter {
 
-    @Autowired
-    OrderHandler orderHandler;
+    private final OrderHandler orderHandler;
     @Bean
     public RouterFunction<ServerResponse> orderRoutes() {
         return RouterFunctions

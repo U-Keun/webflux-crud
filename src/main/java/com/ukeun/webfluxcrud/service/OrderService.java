@@ -5,16 +5,16 @@ import com.ukeun.webfluxcrud.repository.OrderRepository;
 import com.ukeun.webfluxcrud.request.CreateOrderRequest;
 import com.ukeun.webfluxcrud.request.UpdateOrderRequest;
 import com.ukeun.webfluxcrud.response.OrderResponse;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
+@RequiredArgsConstructor
 public class OrderService {
 
-    @Autowired
-    OrderRepository orderRepository;
+    private final OrderRepository orderRepository;
 
     public Flux<Order> getAllOrders() {
         return orderRepository.findAll();
